@@ -1,45 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>UNO</title>
-    <link rel="icon" href ="./public/assets/images/icons/uno-logo.png" type = "image/icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
-
-    <!-- styles -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./public/assets/css/style.css">
-</head>
-<body>
-
-<div class="container">
-    <div class="loading" id="loading">
-
-    </div>
-</div>
-
-<div class="header">
-  <a href="index.html"><h1 class="head">UNO</h1></a>
-  <div id="user">
-    <div id="user_name"></div>
-    <div class="">
-      <button class="ENBN actv">EN</button>
-      <button class="ENBN">BN</button>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-<div class="rules-container">
+let ruleContent = `
+  <button class="text-center" id="hide_rule_btn">Hide</button>
   <button type="button" class="collapsible">Steps to initiate a game</button>
   <div class="rule-content">
     <ul>
@@ -199,37 +159,35 @@
             Or else that player has to draw 2 cards as a penalty.</li>
         <li>The first player to finish all cars on hand wins.</li>
       </ul>
-  </div>
+  </div>`
 
-</div>
+let ruleButton = document.getElementById('rule_btn')
+let ruleContainer = document.getElementById('rule_container')
+ruleButton.addEventListener('click', () => {
+    ruleContainer.innerHTML = ruleContent
+    ruleContainer.classList.remove('hide')
+    hideButtonHandler(ruleContainer)
 
-<script type="text/javascript">
-var coll = document.getElementsByClassName("collapsible");
-var i;
 
-for (i = 0; i < coll.length; i++) {
-coll[i].addEventListener("click", function() {
-  this.classList.toggle("activate");
-  var content = this.nextElementSibling;
-  if (content.style.display === "block") {
-    content.style.display = "none";
-  } else {
-    content.style.display = "block";
-  }
-});
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("activate");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+})
+
+function hideButtonHandler(ruleContainer) {
+    let hideRuleButton = document.getElementById('hide_rule_btn')
+    hideRuleButton.addEventListener('click', () => {
+        ruleContainer.classList.add('hide')
+    })
 }
-</script>
-
-
-<!-- scripts -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/3.1.3/socket.io.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="./public/assets/js/helper.js"></script>
-<script src="./public/assets/js/script.js"></script>
-<script src="./public/assets/js/game.js"></script>
-</body>
-</html>

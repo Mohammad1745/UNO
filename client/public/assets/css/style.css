@@ -626,8 +626,13 @@ body{
 /* RULES */
 
 .rules-container{
-  margin: 50px auto;
-  max-width: 1000px;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  height: 80vh;
+  width: 80vw;
+  background-color: #fff;
+  overflow-y: scroll;
 }
 
 .collapsible {
