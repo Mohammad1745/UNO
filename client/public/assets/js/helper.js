@@ -21,26 +21,24 @@ let helper = {
     },
 
     alertMessage : (type="success", message) => {
-        let content = `<div style="position: fixed; left: 0; top: 0; width: 100%; z-index: 100">`
+        let x = document.getElementById("alerts")
+        let content = ``
         if(type==="success") {
+            x.classList.add("show-alerts-success")
+            setTimeout(function(){ x.className = x.className.replace("show-alerts-success", ""); }, 2000);
             content += `
-                <div class="alert-float alert alert-success alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                    ${message}
-                </div>`
+                    ${message}`
+            x.innerHTML = content;
         }
         else {
+            x.classList.add("show-alerts-danger")
+            setTimeout(function(){ x.className = x.className.replace("show-alerts-danger", ""); }, 2000);
             content += `
-                <div class="alert-float alert alert-danger alert-dismissable">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                    ${message}
-                </div>`
+                    ${message}`
+            x.innerHTML = content;
         }
-        content+= `</div>`
-        document.body.insertAdjacentHTML('beforeend', content)
-        setTimeout(() => {
-            document.querySelector('.close').click()
-        }, 2000)
     },
 
     checkAlert: () => {
