@@ -186,6 +186,7 @@ function handlePlayerListRequestSuccess(response) {
     let playerList = response.data
     let playerListDom = document.getElementById('player_list')
     playerListDom.innerHTML = ''
+    localStorage.setItem('playerCount', Object.keys(playerList).length)
     Object.keys(playerList).map(key => {
         localStorage.setItem(key, playerList[key].username)
         playerListDom.insertAdjacentHTML('beforeend', `<li class="game-player-list"><img class="players-avatar" src="./public/assets/images/icons/uno-logo.png"> ${playerList[key].username}</li>`)
@@ -202,9 +203,14 @@ function handleStartGameButton() {
     const startButton = document.getElementById('start_game_button')
 
     startButton.addEventListener('click', async () => {
-        let gameId = localStorage.getItem('gameId')
-        socket.emit('start-game', {gameId})
-        startGame(gameId)
+        const playerCount = localStorage.getItem('playerCount')
+        if(!playerCount || playerCount<2){
+            helper.alertMessage("error", "Multiple Players Required")
+        } else {
+            let gameId = localStorage.getItem('gameId')
+            socket.emit('start-game', {gameId})
+            startGame(gameId)
+        }
     })
 }
 
