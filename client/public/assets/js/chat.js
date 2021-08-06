@@ -20,8 +20,8 @@ function handleSocketChatEvents({gameId, userId}) {
 function loadChatContainer({gameId, userId}) {
     let chatPopup = `
         <div class="chat-container" id="chat_container">
-            <div class="chat-header">
-                Game Chat: ${gameId} 
+            <div class="chat-header" style="padding-bottom:5px;">
+                Game Chat: ${gameId}
                 <span class="float-right open-chat cursor-pointer" id="open_chat_btn" data-state="open">
                     <i class="fas fa-caret-square-down"></i>
                 </span>
@@ -30,7 +30,7 @@ function loadChatContainer({gameId, userId}) {
                 <ul class="chat-details ml-0" id="chat_details"></ul>
             </div>
             <div class="chat-footer" id="chat_footer">
-                <div class="chat-input form-group" id="chat_input">
+                <div class="chat-input form-group" id="chat_input" style="display:flex;justify-content:space-between;">
                     <input type="text" class="message-input" id="message_input">
                     <button type="button" id="send_message_btn" class="btn btn-primary send-message-btn"><i class="fas fa-paper-plane"></i></button>
                 </div>

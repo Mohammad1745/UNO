@@ -1,5 +1,7 @@
 let ruleContent = `
-  <button class="text-center" id="hide_rule_btn">Hide</button>
+  <div class="center-btn">
+  <button class="rules-hide-button" id="hide_rule_btn">X</button>
+  </div>
   <button type="button" class="collapsible">Steps to initiate a game</button>
   <div class="rule-content">
     <ul>
