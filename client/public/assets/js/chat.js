@@ -31,7 +31,7 @@ function loadChatContainer({gameId, userId}) {
             </div>
             <div class="chat-footer" id="chat_footer">
                 <div class="chat-input form-group" id="chat_input" style="display:flex;justify-content:space-between;">
-                    <input type="text" class="message-input" id="message_input">
+                    <input type="text" class="message-input" id="message_input" placeholder="Enter your message">
                     <button type="button" id="send_message_btn" class="btn btn-primary send-message-btn"><i class="fas fa-paper-plane"></i></button>
                 </div>
             </div>
