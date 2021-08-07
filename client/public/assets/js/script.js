@@ -157,7 +157,7 @@ async function startGamePopUp() {
         <div id="popup_game_id" class="popup-game-id"> Game ID: ${gameId}</div>
         <hr>
         <ul id="player_list" class="players-list">
-        
+
         </ul>
         <button type="button" id="start_game_button" class="start-game-button">Start Game</button>
     `)
@@ -189,7 +189,7 @@ function handlePlayerListRequestSuccess(response) {
     localStorage.setItem('playerCount', Object.keys(playerList).length)
     Object.keys(playerList).map(key => {
         localStorage.setItem(key, playerList[key].username)
-        playerListDom.insertAdjacentHTML('beforeend', `<li class="game-player-list"><img class="players-avatar" src="./public/assets/images/icons/uno-logo.png"> ${playerList[key].username}</li>`)
+        playerListDom.insertAdjacentHTML('beforeend', `<li class="game-player-list"><img class="players-avatar" src="./public/assets/images/icons/${[key]}.png"> ${playerList[key].username}</li>`)
     })
 }
 
