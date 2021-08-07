@@ -133,11 +133,12 @@ async function updateGameContainers(game) {
 
     gameContainer.insertAdjacentHTML('beforeend', html)
 
-    let turnUserHeader = document.querySelector("#" + turnUser + "_area").querySelector('#player_area_head')
     if (gameEnded)
         handlePlayAgain()
-    else
+    else {
+        let turnUserHeader = document.querySelector("#" + turnUser + "_area").querySelector('#player_area_head')
         turnUserHeader.classList.add('player-turn')
+    }
 
     updateGameContainerGrid(game.players, userId)
 
