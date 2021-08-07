@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 })
 
 function handleSocketConnection() {
-    socket = io("http://127.0.0.1:5000")
+    socket = io(helper.DOMAIN)
     socket.on('connect', () => {
         console.log('connected')
     })
