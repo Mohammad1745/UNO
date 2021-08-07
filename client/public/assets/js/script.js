@@ -130,7 +130,7 @@ async function handleJoinGameRequestSuccess(response) {
     localStorage.setItem('userId', userId)
     localStorage.setItem('username',  username)
     helper.alertMessage("success", response.message)
-    await helper.sleep(500)
+    await helper.sleep(1000)
     socket.emit('player-joining', {gameId})
 }
 
