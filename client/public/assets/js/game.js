@@ -145,6 +145,7 @@ async function updateGameContainers(game) {
     document.getElementById('quit_btn').style.display = "block"
 
     if(autoSkip && !Number(cardsCount) && turnUser === userId) {
+        let turnUserHeader = document.querySelector("#" + turnUser + "_area").querySelector('#player_area_head')
         turnUserHeader.innerHTML = "Auto Skip"
         await helper.sleep(1000)
         socket.emit('game-updated', {gameId})
