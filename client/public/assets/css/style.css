@@ -17,7 +17,6 @@ body{
   color: var(--secondary);
   font-size: 20px;
   font-weight: bold;
-  line-height: normal;
 }
 
 .cursor-pointer {
@@ -695,7 +694,7 @@ body{
 
 .alerts {
   visibility: hidden;
-  min-width: 250px;
+  min-width: 300px;
   margin-left: -125px;
   font-weight: normal;
   text-align: center;
@@ -704,7 +703,7 @@ body{
   position: fixed;
   z-index: 1;
   left: 50%;
-  bottom: 30px;
+  top: 30px;
   font-size: 17px;
 }
 
@@ -723,23 +722,23 @@ body{
   animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 @-webkit-keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
 }
 
 @keyframes fadein {
-  from {bottom: 0; opacity: 0;}
-  to {bottom: 30px; opacity: 1;}
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
 }
 
 @-webkit-keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
 }
 
 @keyframes fadeout {
-  from {bottom: 30px; opacity: 1;}
-  to {bottom: 0; opacity: 0;}
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
 }
 
 .hide{
