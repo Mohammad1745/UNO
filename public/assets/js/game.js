@@ -145,6 +145,7 @@ async function updateGameContainers(game) {
     document.getElementById('quit_btn').style.display = "block"
 
     if(autoSkip && !Number(cardsCount) && turnUser === userId) {
+        let turnUserHeader = document.querySelector("#" + turnUser + "_area").querySelector('#player_area_head')
         turnUserHeader.innerHTML = "Auto Skip"
         await helper.sleep(1000)
         socket.emit('game-updated', {gameId})
@@ -240,21 +241,24 @@ function chooseColor({gameId, userId, cardName, color}) {
         <div class="color-popup-container" id="color_popup_container">
           Choose a color
           <div class="choose-color" id="choose_color">
-            <div class="red cursor-pointer" id="red" data-color="R"></div>
-            <div class="blue cursor-pointer" id="blue" data-color="B"></div>
-            <div class="yellow cursor-pointer" id="yellow" data-color="Y"></div>
-            <div class="green cursor-pointer" id="green" data-color="G"></div>
+            <div class="special-color red cursor-pointer" id="red" data-color="R"></div>
+            <div class="special-color blue cursor-pointer" id="blue" data-color="B"></div>
+            <div class="special-color yellow cursor-pointer" id="yellow" data-color="Y"></div>
+            <div class="special-color green cursor-pointer" id="green" data-color="G"></div>
           </div>
         </div>`
     document.body.insertAdjacentHTML('beforeend', content)
 
-    let chooseColorDom = document.getElementById('color_popup_container')
-    chooseColorDom.addEventListener('click', event => {
-        chooseColorDom.remove()
-        color = event.target.getAttribute('data-color')
-        socket.emit('game-updated', {gameId})
-        saveCardPlay({gameId, userId, cardName, color})
-    })
+    let colorPopupContainer = document.getElementById('color_popup_container')
+    let colorDoms = document.querySelectorAll('.special-color')
+    for(let colorDom of colorDoms){
+        colorDom.addEventListener('click', event => {
+            colorPopupContainer.remove()
+            color = colorDom.getAttribute('data-color')
+            socket.emit('game-updated', {gameId})
+            saveCardPlay({gameId, userId, cardName, color})
+        })
+    }
 }
 
 function saveCardPlay({gameId, userId, cardName, color}) {

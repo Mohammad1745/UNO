@@ -1,5 +1,5 @@
 let helper = {
-    DOMAIN: "http://127.0.0.1:8000",
+    DOMAIN: "https://nameless-atoll-42002.herokuapp.com",
 
     sleep : (milliseconds) => {
         return new Promise(resolve => setTimeout(resolve, milliseconds))
